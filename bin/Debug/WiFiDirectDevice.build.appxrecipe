@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>HYEWON</Machine>
+    <WindowsUser>Hyewon</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>Microsoft.SDKSamples.WiFiDirectDevice.CS</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\Hyewon\Desktop\Sample\obj\Debug\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.exe">
+      <PackagePath>WiFiDirectDevice.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\microsoft-sdk.png">
+      <PackagePath>Assets\microsoft-sdk.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\placeholder-sdk.png">
+      <PackagePath>Assets\placeholder-sdk.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\smallTile-sdk.png">
+      <PackagePath>Assets\smallTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\splash-sdk.png">
+      <PackagePath>Assets\splash-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\squareTile-sdk.png">
+      <PackagePath>Assets\squareTile-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\storeLogo-sdk.png">
+      <PackagePath>Assets\storeLogo-sdk.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\tile-sdk.png">
+      <PackagePath>Assets\tile-sdk.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\windows-sdk.png">
+      <PackagePath>Assets\windows-sdk.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xbf">
+      <PackagePath>WiFiDirectDevice.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf">
+      <PackagePath>Sample-Utils\SampleTemplateStyles.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\Common\StandardStyles.xbf">
+      <PackagePath>Common\StandardStyles.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xr.xml">
+      <PackagePath>WiFiDirectDevice.xr.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

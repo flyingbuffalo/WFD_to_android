@@ -1,0 +1,110 @@
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\microsoft-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\placeholder-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\smallTile-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\splash-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\squareTile-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\storeLogo-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\tile-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Assets\windows-sdk.png
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\App.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\WiFiDirectDevice.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\Common\StandardStyles.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\MainPage.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\WiFiDirectDevice.xr.xml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\WiFiDirectDevice.exe
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\WiFiDirectDevice.pdb
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\resources.pri
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\AppxManifest.xml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\bin\Debug\WiFiDirectDevice.build.appxrecipe
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\App.g.i.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\App.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.g.i.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Sample-Utils\SampleTemplateStyles.g.i.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Sample-Utils\SampleTemplateStyles.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Common\StandardStyles.g.i.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Common\StandardStyles.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\MainPage.g.i.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\MainPage.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\App.xaml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.xaml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Sample-Utils\SampleTemplateStyles.xaml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Common\StandardStyles.xaml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\MainPage.xaml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\App.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Sample-Utils\SampleTemplateStyles.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\Common\StandardStyles.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\MainPage.xbf
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\XamlSaveStateFile.xml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.exe
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\WiFiDirectDevice.pdb
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\priconfig.xml
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\priconfig.xml.intermediate
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\layout.resfiles
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\layout.resfiles.intermediate
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\resources.resfiles
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\resources.resfiles.intermediate
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\pri.resfiles
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\pri.resfiles.intermediate
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\qualifiers.txt
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Hanter\Desktop\WiFiDirectDevice sample\C#\obj\Debug\ProjectArchitectures.txt
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\microsoft-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\placeholder-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\smallTile-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\splash-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\squareTile-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\storeLogo-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\tile-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Assets\windows-sdk.png
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\App.xbf
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xbf
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\Common\StandardStyles.xbf
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\MainPage.xbf
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xr.xml
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.exe
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.pdb
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\resources.pri
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\AppxManifest.xml
+C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.build.appxrecipe
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\App.g.i.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\App.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.g.i.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Sample-Utils\SampleTemplateStyles.g.i.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Sample-Utils\SampleTemplateStyles.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Common\StandardStyles.g.i.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Common\StandardStyles.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\MainPage.g.i.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\MainPage.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\XamlTypeInfo.g.cs
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\App.xaml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.xaml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Sample-Utils\SampleTemplateStyles.xaml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Common\StandardStyles.xaml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\MainPage.xaml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\App.xbf
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.xbf
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Sample-Utils\SampleTemplateStyles.xbf
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\Common\StandardStyles.xbf
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\MainPage.xbf
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\XamlSaveStateFile.xml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.exe
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\WiFiDirectDevice.pdb
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\priconfig.xml
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\priconfig.xml.intermediate
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\layout.resfiles
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\layout.resfiles.intermediate
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\resources.resfiles
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\resources.resfiles.intermediate
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\pri.resfiles
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\pri.resfiles.intermediate
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\qualifiers.txt
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\qualifiers.txt.intermediate
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Hyewon\Desktop\Sample\obj\Debug\ProjectArchitectures.txt
