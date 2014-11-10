@@ -1,1 +1,1 @@
-C:\Users\Hyewon\Desktop\Sample\WiFiDirectDevice.csproj;neutral
+C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\WiFiDirectDevice.csproj;neutral

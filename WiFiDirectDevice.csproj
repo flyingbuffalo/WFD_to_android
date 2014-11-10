@@ -39,15 +39,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Constants.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WiFiDirectDevice.xaml.cs">
-      <DependentUpon>WiFiDirectDevice.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Sample-Utils\SuspensionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WFDDevice.cs" />
+    <Compile Include="WFDDeviceConnectedListener.cs" />
+    <Compile Include="WFDDeviceDiscoveredListener.cs" />
+    <Compile Include="WFDManager.cs" />
+    <Compile Include="WFDPairInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -79,10 +80,6 @@
     <Content Include="Assets\windows-sdk.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Page Include="WiFiDirectDevice.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Sample-Utils\SampleTemplateStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

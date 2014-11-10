@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>HYEWON</Machine>
-    <WindowsUser>Hyewon</WindowsUser>
+    <Machine>HANTER</Machine>
+    <WindowsUser>Hanter Jung</WindowsUser>
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
     <PackageIdentityName>Microsoft.SDKSamples.WiFiDirectDevice.CS</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\Hyewon\Desktop\Sample\obj\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\obj\Debug\</IntermediateOutputPath>
     <RegisteredManifestChecksum>AC7309D67CCF23040B2691CF5005C56F1BF039BDD9F587D47CCD64448585F285</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>Microsoft.SDKSamples.WiFiDirectDevice.CS_1.0.0.0_neutral__8wekyb3d8bbwe</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>Microsoft.SDKSamples.WiFiDirectDevice.CS_8wekyb3d8bbwe!WiFiDirectDevice.App</RegisteredUserModeAppID>
@@ -17,80 +17,76 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:09:05.431</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.exe">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\WiFiDirectDevice.exe">
       <PackagePath>WiFiDirectDevice.exe</PackagePath>
-      <Modified>2014-08-18T10:03:36.975</Modified>
+      <Modified>2014-11-10T11:12:23.751</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\microsoft-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\microsoft-sdk.png">
       <PackagePath>Assets\microsoft-sdk.png</PackagePath>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.259</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\placeholder-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\placeholder-sdk.png">
       <PackagePath>Assets\placeholder-sdk.png</PackagePath>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.261</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\smallTile-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\smallTile-sdk.png">
       <PackagePath>Assets\smallTile-sdk.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.263</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\splash-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\splash-sdk.png">
       <PackagePath>Assets\splash-sdk.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.265</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\squareTile-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\squareTile-sdk.png">
       <PackagePath>Assets\squareTile-sdk.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.267</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\storeLogo-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\storeLogo-sdk.png">
       <PackagePath>Assets\storeLogo-sdk.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.269</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\tile-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\tile-sdk.png">
       <PackagePath>Assets\tile-sdk.png</PackagePath>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.270</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\Assets\windows-sdk.png">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\windows-sdk.png">
       <PackagePath>Assets\windows-sdk.png</PackagePath>
-      <Modified>2014-06-05T09:16:34.000</Modified>
+      <Modified>2014-11-10T11:01:42.271</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:09:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xbf">
-      <PackagePath>WiFiDirectDevice.xbf</PackagePath>
-      <Modified>2014-08-12T10:16:20.000</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\Sample-Utils\SampleTemplateStyles.xbf">
       <PackagePath>Sample-Utils\SampleTemplateStyles.xbf</PackagePath>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:09:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\Common\StandardStyles.xbf">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\Common\StandardStyles.xbf">
       <PackagePath>Common\StandardStyles.xbf</PackagePath>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:09:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2014-07-08T09:52:46.000</Modified>
+      <Modified>2014-11-10T11:09:05.160</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\WiFiDirectDevice.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\WiFiDirectDevice.xr.xml">
       <PackagePath>WiFiDirectDevice.xr.xml</PackagePath>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:05:22.553</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Hyewon\Desktop\Sample\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2014-07-07T15:34:02.000</Modified>
+      <Modified>2014-11-10T11:09:05.413</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

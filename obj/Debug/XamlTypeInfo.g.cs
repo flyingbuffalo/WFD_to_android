@@ -9,7 +9,7 @@
 
 
 
-namespace SDKTemplate
+namespace ShareWith
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
@@ -124,19 +124,15 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
-            _typeNameTable[0] = "SDKTemplate.Common.LayoutAwarePage";
+            _typeNameTable = new string[3];
+            _typeNameTable[0] = "ShareWith.MainPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "WiFiDirectDeviceScenario.WiFiDirectDeviceScenario";
-            _typeNameTable[4] = "SDKTemplate.MainPage";
 
-            _typeTable = new global::System.Type[5];
-            _typeTable[0] = typeof(global::SDKTemplate.Common.LayoutAwarePage);
+            _typeTable = new global::System.Type[3];
+            _typeTable[0] = typeof(global::ShareWith.MainPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::WiFiDirectDeviceScenario.WiFiDirectDeviceScenario);
-            _typeTable[4] = typeof(global::SDKTemplate.MainPage);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -171,9 +167,7 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_LayoutAwarePage() { return new global::SDKTemplate.Common.LayoutAwarePage(); }
-        private object Activate_3_WiFiDirectDeviceScenario() { return new global::WiFiDirectDeviceScenario.WiFiDirectDeviceScenario(); }
-        private object Activate_4_MainPage() { return new global::SDKTemplate.MainPage(); }
+        private object Activate_0_MainPage() { return new global::ShareWith.MainPage(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -185,9 +179,9 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  SDKTemplate.Common.LayoutAwarePage
+            case 0:   //  ShareWith.MainPage
                 userType = new global::WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_LayoutAwarePage;
+                userType.Activator = Activate_0_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -198,20 +192,6 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
 
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 3:   //  WiFiDirectDeviceScenario.WiFiDirectDeviceScenario
-                userType = new global::WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("SDKTemplate.Common.LayoutAwarePage"));
-                userType.Activator = Activate_3_WiFiDirectDeviceScenario;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  SDKTemplate.MainPage
-                userType = new global::WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("SDKTemplate.Common.LayoutAwarePage"));
-                userType.Activator = Activate_4_MainPage;
-                userType.SetIsLocalType();
-                xamlType = userType;
                 break;
             }
             return xamlType;
@@ -547,5 +527,7 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
         }
     }
 }
+
+
 
 

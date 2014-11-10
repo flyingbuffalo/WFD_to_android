@@ -1,284 +1,164 @@
-﻿// THIS CODE AND INFORMATION IS PROVIDED "AS IS" WITHOUT WARRANTY OF
-// ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-// THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS FOR A
-// PARTICULAR PURPOSE.
-
-using System;
-using Windows.UI.ViewManagement;
+﻿using System;
+using System.Text;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Foundation;
+using Windows.Storage;
+using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
+using Windows.Foundation.Collections;
+using Windows.Storage.FileProperties;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Markup;
+using Windows.UI.Xaml.Controls.Primitives;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Threading.Tasks;
+using System.Threading;
 using Windows.UI.Core;
-using Windows.ApplicationModel.Activation;
+using Windows.Networking;
+using Windows.Networking.Sockets;
+using Windows.System.Threading;
+using System.Diagnostics;
 
-namespace SDKTemplate
+using System.Collections.Generic;
+using Windows.Devices.Enumeration;
+using Windows.Devices.WiFiDirect;
+using Buffalo.WiFiDirect;
+
+// 빈 페이지 항목 템플릿에 대한 설명은 http://go.microsoft.com/fwlink/?LinkId=234238에 나와 있습니다.
+
+namespace ShareWith
 {
     /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// 자체에서 사용하거나 프레임 내에서 탐색할 수 있는 빈 페이지입니다.
     /// </summary>
-    public sealed partial class MainPage : SDKTemplate.Common.LayoutAwarePage
+    public sealed partial class MainPage : Page
     {
-        public static MainPage Current;
 
-        private Frame HiddenFrame = null;
+        DeviceInformationCollection devInfoCollection = null;
+        Windows.Devices.WiFiDirect.WiFiDirectDevice wfdDevice;
 
         public MainPage()
         {
             this.InitializeComponent();
 
-            // This is a static public property that will allow downstream pages to get 
-            // a handle to the MainPage instance in order to call methods that are in this class.
-            Current = this;
-
-            // This frame is hidden, meaning it is never shown.  It is simply used to load
-            // each scenario page and then pluck out the input and output sections and
-            // place them into the UserControls on the main page.
-            HiddenFrame = new Windows.UI.Xaml.Controls.Frame();
-            HiddenFrame.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            LayoutRoot.Children.Add(HiddenFrame);
-
-            // Populate the sample title from the constant in the GlobalVariables.cs file.
-            SetFeatureName(FEATURE_NAME);
-
-            Scenarios.SelectionChanged += Scenarios_SelectionChanged;
-            SizeChanged += MainPage_SizeChanged;
         }
 
-        void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        private async void GetDevices(object sender, RoutedEventArgs e)
         {
-            InvalidateSize();
-        }
+            //manager.getDevicesAsync();
+            TextMessage.Text = "Finding Devices...";
 
-        /// <summary>
-        /// Invoked when this page is about to be displayed in a Frame.
-        /// </summary>
-        /// <param name="e">Event data that describes how this page was reached.  The Parameter
-        /// property is typically used to configure the page.</param>
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            PopulateScenarios();
-            InvalidateLayout();
-        }
+            devInfoCollection = null;
 
-        private void InvalidateSize()
-        {
-            // Get the window width
-            double windowWidth = this.ActualWidth;
+            ComboDevicesList.Items.Clear();
 
-            if (windowWidth != 0.0)
+            String deviceSelector = Windows.Devices.WiFiDirect.WiFiDirectDevice.GetDeviceSelector();
+            devInfoCollection = await DeviceInformation.FindAllAsync(deviceSelector);
+
+            if (devInfoCollection.Count == 0) TextMessage.Text = "Not Found.";
+            else
             {
-                // Get the width of the ListBox.
-                double listBoxWidth = Scenarios.ActualWidth;
-
-                // Is the ListBox using any margins that we need to consider?
-                double listBoxMarginLeft = Scenarios.Margin.Left;
-                double listBoxMarginRight = Scenarios.Margin.Right;
-
-                // Figure out how much room is left after considering the list box width
-                double availableWidth = windowWidth - listBoxWidth;
-
-                // Is the top most child using margins?
-                double layoutRootMarginLeft = ContentRoot.Margin.Left;
-                double layoutRootMarginRight = ContentRoot.Margin.Right;
-
-                // We have different widths to use depending on the view state
-                if (this.ActualWidth >= 768)
+                foreach (var devInfo in devInfoCollection)
                 {
-                    // Make us as big as the the left over space, factoring in the ListBox width, the ListBox margins.
-                    // and the LayoutRoot's margins
-                    InputSection.Width = ((availableWidth) - (layoutRootMarginLeft + layoutRootMarginRight + listBoxMarginLeft + listBoxMarginRight));
+                    ComboDevicesList.Items.Add(devInfo.Name);
+                }
+                ComboDevicesList.SelectedIndex = 0;
+
+                TextMessage.Text = "Found " + devInfoCollection.Count;
+            }
+        }
+
+        private async void Connect(object sender, RoutedEventArgs e)
+        {
+            /*selectedDevice = devList[ComboDevicesList.SelectedIndex];
+
+            TextMessage.Text = "Connect to " + selectedDevice.Name;
+            manager.pairAsync(selectedDevice);*/
+
+            DeviceInformation chosenDevInfo = null;
+            EndpointPair endpointPair = null;
+            try
+            {
+                // If nothing is selected, return
+                chosenDevInfo = devInfoCollection[ComboDevicesList.SelectedIndex];
+
+                TextMessage.Text = "Connect to " + chosenDevInfo.Name;
+
+                // Connect to the selected WiFiDirect device
+                wfdDevice = await Windows.Devices.WiFiDirect.WiFiDirectDevice.FromIdAsync(chosenDevInfo.Id);
+
+                if (wfdDevice == null)
+                {
+                    TextMessage.Text = "Connect Fail";
+                    return;
+                }
+
+                // Register for Connection status change notification
+                wfdDevice.ConnectionStatusChanged += new TypedEventHandler<Windows.Devices.WiFiDirect.WiFiDirectDevice, object>(DisconnectNotification);
+
+                // Get the EndpointPair collection
+                var EndpointPairCollection = wfdDevice.GetConnectionEndpointPairs();
+                if (EndpointPairCollection.Count > 0)
+                {
+                    endpointPair = EndpointPairCollection[0];
                 }
                 else
                 {
-                    // Make us as big as the left over space, factoring in just the LayoutRoot's margins.
-                    InputSection.Width = (windowWidth - (layoutRootMarginLeft + layoutRootMarginRight));
+                    TextMessage.Text = "Connection to " + chosenDevInfo.Name + " failed.";
+                    return;
                 }
-            }
-            InvalidateLayout();
-        }
 
-        private void InvalidateLayout()
-        {
+                TextMessage.Text = "Connection Succeeded with " + endpointPair.RemoteHostName.ToString();
 
-            if (this.ActualWidth < 768)
-            {
-                Grid.SetRow(DescriptionText, 3);
-                Grid.SetColumn(DescriptionText, 0);
+                //Server Socket open
+                StreamSocketListener listener = new StreamSocketListener();
+                listener.ConnectionReceived += OnConnection;
 
-                Grid.SetRow(InputSection, 4);
-                Grid.SetColumn(InputSection, 0);
-
-                Grid.SetRow(FooterPanel, 2);
-                Grid.SetColumn(FooterPanel, 0);
-            }
-            else
-            {
-                Grid.SetRow(DescriptionText, 1);
-                Grid.SetColumn(DescriptionText, 1);
-
-                Grid.SetRow(InputSection, 2);
-                Grid.SetColumn(InputSection, 1);
-
-                Grid.SetRow(FooterPanel, 1);
-                Grid.SetColumn(FooterPanel, 1);
-            }
-        }
-
-        private void PopulateScenarios()
-        {
-            System.Collections.ObjectModel.ObservableCollection<object> ScenarioList = new System.Collections.ObjectModel.ObservableCollection<object>();
-
-            // Populate the ListBox with the list of scenarios as defined in Constants.cs.
-            foreach (Scenario s in scenarios)
-            {
-                ListBoxItem item = new ListBoxItem();
-                item.Content = s;
-                item.Name = s.ClassType.FullName;
-                ScenarioList.Add(item);
-            }
-
-            // Bind the ListBox to the scenario list.
-            Scenarios.ItemsSource = ScenarioList;
-
-            // Starting scenario is the first or based upon a previous selection.
-            int startingScenarioIndex = -1;
-
-            if (SuspensionManager.SessionState.ContainsKey("SelectedScenarioIndex"))
-            {
-                int selectedScenarioIndex = Convert.ToInt32(SuspensionManager.SessionState["SelectedScenarioIndex"]);
-                startingScenarioIndex = selectedScenarioIndex;
-            }
-
-            Scenarios.SelectedIndex = startingScenarioIndex != -1 ? startingScenarioIndex : 0;
-        }
-
-        /// <summary>
-        /// This method is responsible for loading the individual input and output sections for each scenario.  This 
-        /// is based on navigating a hidden Frame to the ScenarioX.xaml page and then extracting out the input
-        /// and output sections into the respective UserControl on the main page.
-        /// </summary>
-        /// <param name="scenarioName"></param>
-        public void LoadScenario(Type scenarioClass)
-        {
-            // Load the ScenarioX.xaml file into the Frame.
-            HiddenFrame.Navigate(scenarioClass, this);
-
-            // Get the top element, the Page, so we can look up the elements
-            // that represent the input and output sections of the ScenarioX file.
-            Page hiddenPage = HiddenFrame.Content as Page;
-
-            // Get each element.
-            UIElement input = hiddenPage.FindName("Input") as UIElement;
-            UIElement output = hiddenPage.FindName("Output") as UIElement;
-
-            if (input == null)
-            {
-                // Malformed input section.
-                NotifyUser(String.Format(
-                    "Cannot load scenario input section for {0}.  Make sure root of input section markup has x:Name of 'Input'",
-                    scenarioClass.Name), NotifyType.ErrorMessage);
-                return;
-            }
-
-            if (output == null)
-            {
-                // Malformed output section.
-                NotifyUser(String.Format(
-                    "Cannot load scenario output section for {0}.  Make sure root of output section markup has x:Name of 'Output'",
-                    scenarioClass.Name), NotifyType.ErrorMessage);
-                return;
-            }
-
-            // Find the LayoutRoot which parents the input and output sections in the main page.
-            Panel panel = hiddenPage.FindName("LayoutRoot") as Panel;
-
-            if (panel != null)
-            {
-                // Get rid of the content that is currently in the intput and output sections.
-                panel.Children.Remove(input);
-                panel.Children.Remove(output);
-
-                // Populate the input and output sections with the newly loaded content.
-                InputSection.Content = input;
-                OutputSection.Content = output;
-            }
-            else
-            {
-                // Malformed Scenario file.
-                NotifyUser(String.Format(
-                    "Cannot load scenario: '{0}'.  Make sure root tag in the '{0}' file has an x:Name of 'LayoutRoot'",
-                    scenarioClass.Name), NotifyType.ErrorMessage);
-            }
-
-        }
-
-        void Scenarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (Scenarios.SelectedItem != null)
-            {
-                NotifyUser("", NotifyType.StatusMessage);
-
-                ListBoxItem selectedListBoxItem = Scenarios.SelectedItem as ListBoxItem;
-                SuspensionManager.SessionState["SelectedScenario"] = selectedListBoxItem.Name;
-
-                Scenario scenario = selectedListBoxItem.Content as Scenario;
-                LoadScenario(scenario.ClassType);
-                InvalidateSize();
-            }
-        }
-
-        public async  void NotifyUser(string strMessage, NotifyType type)
-        {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                switch (type)
+                // Start listen operation.
+                try
                 {
-                    // Use the status message style.
-                    case NotifyType.StatusMessage:
-                        StatusBlock.Style = Resources["StatusStyle"] as Style;
-                        break;
-                    // Use the error message style.
-                    case NotifyType.ErrorMessage:
-                        StatusBlock.Style = Resources["ErrorStyle"] as Style;
-                        break;
+                    await listener.BindServiceNameAsync("9190");
+                    TextMessage.Text = "Listening";
+
                 }
-                StatusBlock.Text = "\n" + strMessage;
-            });
-        }
-        
-        public async void ClearLog(TextBlock textBlock)
-        {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+                catch (Exception exception)
+                {
+                    // If this is an unknown status it means that the error is fatal and retry will likely fail.
+                    if (SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
+                    {
+                        throw;
+                    }
+
+                    TextMessage.Text = 
+                        "Start listening failed with error: " + exception.Message;
+                }
+
+            }
+            catch (Exception err)
             {
-                textBlock.Style = Resources["StatusStyle"] as Style;
-                textBlock.Text = "";
-            });
+                TextMessage.Text = "Connection to " + chosenDevInfo.Name + " failed: " + err.Message;
+            }
+
         }
 
-        public async void UpdateLog(string strMessage, TextBlock textBlock)
+        private async void OnConnection(StreamSocketListener sender,
+                StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                textBlock.Style = Resources["StatusStyle"] as Style;
-                textBlock.Text += strMessage + "\n";
-            });
+            
         }
 
-        async void Footer_Click(object sender, RoutedEventArgs e)
+        private void DisconnectNotification(object sender, object arg)
         {
-            await Windows.System.Launcher.LaunchUriAsync(new Uri(((HyperlinkButton)sender).Tag.ToString()));
+
         }
 
-        private void SetFeatureName(string str)
-        {
-            FeatureName.Text = str;
-        }
+
     }
-
-    public enum NotifyType
-    {
-        StatusMessage,
-        ErrorMessage
-    };
 }
