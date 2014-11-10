@@ -57,7 +57,7 @@ namespace ShareWith
             this.InitializeComponent();
 
             discoveredListener = new DiscoveredListener(this);
-            //manager = new WFDManager(this, discoveredListener, discoveredListener, discoveredListener);
+            manager = new WFDManager(this, discoveredListener, discoveredListener, discoveredListener);
         }
 
         private async void GetDevices(object sender, RoutedEventArgs e)

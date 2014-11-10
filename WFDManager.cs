@@ -14,7 +14,6 @@ using Windows.Devices.WiFiDirect;
 using Windows.Devices.Enumeration;
 using System.Diagnostics;
 
-using Windows.Networking.Proximity;
 
 namespace Buffalo.WiFiDirect
 {
@@ -37,7 +36,6 @@ namespace Buffalo.WiFiDirect
         }
 
 
-        private event EventHandler<ConnectionRequestedEventArgs> ConnectionRequested;
         public WFDManager(DependencyObject parent,
                           WFDDeviceDiscoveredListener wfdDeviceDiscoveredListener,
                           WFDDeviceConnectedListener wfdDeviceConnectedListener,
@@ -48,32 +46,6 @@ namespace Buffalo.WiFiDirect
             setWFDDeviceConnectedListener(wfdDeviceConnectedListener);
             setWFDDeviceDiscoveredListener(wfdDeviceDiscoveredListener);
 
-            //PeerFinder.Start();가 getDevicesAsync로 가야하는건가..
-            /*peer Application을 찾는 프로세스를 시작하고 Application을 원격 피어에서 검색할 수 있게 만듦*/
-            PeerFinder.Start();
-
-            /* 상대 peer에서 connection요청이 왔을 경우 처리할 함수*/
-            /// public event EventHandler<ConnectionRequestedEventArgs> ConnectionRequested;
-           
-            PeerFinder.ConnectionRequested += async (object sender, ConnectionRequestedEventArgs args) =>
-            {
-                Debug.WriteLine("ConnectionReceived in manager");
-
-                //StreamSocket s = await PeerFinder.ConnectAsync(args.PeerInformation);
-                if (ConnectionRequested != null)
-                {
-                    ConnectionRequested(this, args);
-                }
-
-                WFDPairInfo pInfo = new WFDPairInfo(new WFDDevice(args.PeerInformation), parent);
-                pInfo.receivedSocketAsync(wfdPairSocketConnectedListener);
-                
-
-                /*await parent.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-                    Debug.WriteLine("Call onSocketConnected");
-                });*/
-            };
         }
 
         //private delegate void WorkItemHandler(IAsyncAction operation);
@@ -81,17 +53,6 @@ namespace Buffalo.WiFiDirect
         public void getDevicesAsync()
         {
             List<WFDDevice> wfdList = new List<WFDDevice>();
-            IEnumerable<PeerInformation> pList = null;
-
-            /* checkPeerFinder : 
-             * SupportedDiscoveryTypes 검색 옵션을 PeerFinder와 사용할 수 있는지 확인
-             * PeerDiscoveryTypes.Browse는 FindAllPeersAsync, connectAsync를 사용하는데 WiFi Direct를 사용할 수 있는 지 확인
-             * 
-             * allowWifiDirect :
-             * WiFi Direct를 이용하여 StreamSocket을 사용할 수 있는 지 확인
-             */
-            bool checkPeerFinder = (PeerFinder.SupportedDiscoveryTypes & PeerDiscoveryTypes.Browse) == PeerDiscoveryTypes.Browse;
-            bool allowWifiDirect = PeerFinder.AllowWiFiDirect;
 
             IAsyncAction asyncAction = ThreadPool.RunAsync( async (workItem) =>
             {
@@ -99,26 +60,12 @@ namespace Buffalo.WiFiDirect
                 string wfdSelector = Windows.Devices.WiFiDirect.WiFiDirectDevice.GetDeviceSelector();
                 DeviceInformationCollection devInfoCollection = await DeviceInformation.FindAllAsync(wfdSelector);
 
-                /* to Windows
-                 * PeerFinder에서 WiFi Direct를 사용할 수 있는 지 확인하여 가능 할 경우에만 FindAllPeerAsync함수를 호출한다.
-                 */
-                if (checkPeerFinder && allowWifiDirect)
-                {
-                    pList = await PeerFinder.FindAllPeersAsync();
-                }
 
                 foreach (DeviceInformation devInfo in devInfoCollection)
                 { /* to Android */
                     wfdList.Add(new WFDDevice(devInfo));
                 }
 
-                if (pList != null)
-                {
-                    foreach (PeerInformation peerInfo in pList)
-                    { /* to Windows  wfdList에 peerInfo를 추가한다 */
-                        wfdList.Add(new WFDDevice(peerInfo));
-                    }
-                }
                 
                 /*비동기 작업이 취소되면 wfdList를 clear한다*/
                 if (workItem.Status == AsyncStatus.Canceled)
