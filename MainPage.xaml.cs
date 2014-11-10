@@ -56,7 +56,7 @@ namespace ShareWith
         {
             this.InitializeComponent();
 
-            //discoveredListener = new DiscoveredListener(this);
+            discoveredListener = new DiscoveredListener(this);
             //manager = new WFDManager(this, discoveredListener, discoveredListener, discoveredListener);
         }
 
