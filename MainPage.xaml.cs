@@ -62,110 +62,17 @@ namespace ShareWith
 
         private async void GetDevices(object sender, RoutedEventArgs e)
         {
-            //manager.getDevicesAsync();
+            manager.getDevicesAsync();
             TextMessage.Text = "Finding Devices...";
 
-            devInfoCollection = null;
-
-            ComboDevicesList.Items.Clear();
-
-            String deviceSelector = Windows.Devices.WiFiDirect.WiFiDirectDevice.GetDeviceSelector();
-            devInfoCollection = await DeviceInformation.FindAllAsync(deviceSelector);
-
-            if (devInfoCollection.Count == 0) TextMessage.Text = "Not Found.";
-            else
-            {
-                foreach (var devInfo in devInfoCollection)
-                {
-                    ComboDevicesList.Items.Add(devInfo.Name);
-                }
-                ComboDevicesList.SelectedIndex = 0;
-
-                TextMessage.Text = "Found " + devInfoCollection.Count;
-            }
         }
 
         private async void Connect(object sender, RoutedEventArgs e)
         {
-            /*selectedDevice = devList[ComboDevicesList.SelectedIndex];
+            selectedDevice = devList[ComboDevicesList.SelectedIndex];
 
             TextMessage.Text = "Connect to " + selectedDevice.Name;
-            manager.pairAsync(selectedDevice);*/
-
-            DeviceInformation chosenDevInfo = null;
-            EndpointPair endpointPair = null;
-            try
-            {
-                // If nothing is selected, return
-                chosenDevInfo = devInfoCollection[ComboDevicesList.SelectedIndex];
-
-                TextMessage.Text = "Connect to " + chosenDevInfo.Name;
-
-                // Connect to the selected WiFiDirect device
-                wfdDevice = await Windows.Devices.WiFiDirect.WiFiDirectDevice.FromIdAsync(chosenDevInfo.Id);
-
-                if (wfdDevice == null)
-                {
-                    TextMessage.Text = "Connect Fail";
-                    return;
-                }
-
-                // Register for Connection status change notification
-                wfdDevice.ConnectionStatusChanged += new TypedEventHandler<Windows.Devices.WiFiDirect.WiFiDirectDevice, object>(DisconnectNotification);
-
-                // Get the EndpointPair collection
-                var EndpointPairCollection = wfdDevice.GetConnectionEndpointPairs();
-                if (EndpointPairCollection.Count > 0)
-                {
-                    endpointPair = EndpointPairCollection[0];
-                }
-                else
-                {
-                    TextMessage.Text = "Connection to " + chosenDevInfo.Name + " failed.";
-                    return;
-                }
-
-                TextMessage.Text = "Connection Succeeded with " + endpointPair.RemoteHostName.ToString();
-
-                //Server Socket open
-                StreamSocketListener listener = new StreamSocketListener();
-                listener.ConnectionReceived += OnConnection;
-
-                // Start listen operation.
-                try
-                {
-                    await listener.BindServiceNameAsync("9190");
-                    TextMessage.Text = "Listening";
-
-                }
-                catch (Exception exception)
-                {
-                    // If this is an unknown status it means that the error is fatal and retry will likely fail.
-                    if (SocketError.GetStatus(exception.HResult) == SocketErrorStatus.Unknown)
-                    {
-                        throw;
-                    }
-
-                    TextMessage.Text =
-                        "Start listening failed with error: " + exception.Message;
-                }
-
-            }
-            catch (Exception err)
-            {
-                TextMessage.Text = "Connection to " + chosenDevInfo.Name + " failed: " + err.Message;
-            }
-
-        }
-
-        private async void OnConnection(StreamSocketListener sender,
-                StreamSocketListenerConnectionReceivedEventArgs args)
-        {
-
-        }
-
-        private void DisconnectNotification(object sender, object arg)
-        {
+            manager.pairAsync(selectedDevice);
 
         }
 
