@@ -529,5 +529,3 @@ namespace WiFiDirectDevice.WiFiDirectDevice_XamlTypeInfo
 }
 
 
-
-

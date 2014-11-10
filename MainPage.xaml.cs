@@ -40,6 +40,14 @@ namespace ShareWith
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private WFDManager manager;
+        internal WFDDevice selectedDevice;
+        internal WFDPairInfo pairInfo;
+        internal List<WFDDevice> devList = new List<WFDDevice>();
+
+        DiscoveredListener discoveredListener = null;
+
+
 
         DeviceInformationCollection devInfoCollection = null;
         Windows.Devices.WiFiDirect.WiFiDirectDevice wfdDevice;
@@ -48,6 +56,8 @@ namespace ShareWith
         {
             this.InitializeComponent();
 
+            //discoveredListener = new DiscoveredListener(this);
+            //manager = new WFDManager(this, discoveredListener, discoveredListener, discoveredListener);
         }
 
         private async void GetDevices(object sender, RoutedEventArgs e)
@@ -136,7 +146,7 @@ namespace ShareWith
                         throw;
                     }
 
-                    TextMessage.Text = 
+                    TextMessage.Text =
                         "Start listening failed with error: " + exception.Message;
                 }
 
@@ -151,7 +161,7 @@ namespace ShareWith
         private async void OnConnection(StreamSocketListener sender,
                 StreamSocketListenerConnectionReceivedEventArgs args)
         {
-            
+
         }
 
         private void DisconnectNotification(object sender, object arg)
@@ -160,5 +170,80 @@ namespace ShareWith
         }
 
 
+        public class DiscoveredListener : WFDDeviceDiscoveredListener, WFDDeviceConnectedListener, WFDPairInfo.PairSocketConnectedListener
+        {
+            MainPage parent;
+            int BLOCK_SIZE = 1024;
+            StorageFile file;
+
+            public DiscoveredListener(MainPage parent)
+            {
+                this.parent = parent;
+            }
+
+            public async void onDevicesDiscovered(List<WFDDevice> deviceList)
+            {
+                parent.devList = deviceList;
+
+                if (deviceList.Count != 0)
+                {
+                    foreach (WFDDevice dev in deviceList)
+                    {
+                        Debug.WriteLine(dev.Name);
+                    }
+
+                    parent.ComboDevicesList.Items.Clear();
+                    foreach (WFDDevice dev in deviceList)
+                    {
+                        parent.ComboDevicesList.Items.Add(dev);
+                    }
+
+                    parent.TextMessage.Text = "Found " + deviceList.Count;
+
+                }
+                else
+                {
+                    parent.TextMessage.Text = "Found Not";
+                }
+            }
+
+            public void onDevicesDiscoverFailed(int reasonCode)
+            {
+                parent.TextMessage.Text = "discovery fail";
+            }
+
+
+            //connceted(device-paring)
+            public async void onDeviceConnected(WFDPairInfo pair)
+            {
+                parent.pairInfo = pair;
+
+                Debug.WriteLine("MainPage : paring");
+                parent.TextMessage.Text = "Device's IP Address : " + pair.getRemoteAddress();
+                pair.connectSocketAsync(this);
+            }
+
+            public void onDeviceConnectFailed(int reasonCode)
+            {
+                Debug.WriteLine("connection failed by reasoncode=" + reasonCode);
+                parent.TextMessage.Text = ("connection failed by reasoncode=" + reasonCode);
+            }
+
+            public void onDeviceDisconnected()
+            {
+                parent.TextMessage.Text = "disconnceted device";
+            }
+
+            public async void onSocketReceived(StreamSocket s)
+            {
+                parent.TextMessage.Text = "Received Socket.";
+            }
+
+            public async void onSocketConnected(StreamSocket s)
+            {
+                parent.TextMessage.Text = "Connected Socket.";
+
+            }
+        }
     }
 }
