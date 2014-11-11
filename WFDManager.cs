@@ -14,6 +14,8 @@ using Windows.Devices.WiFiDirect;
 using Windows.Devices.Enumeration;
 using System.Diagnostics;
 
+using Windows.Networking.Proximity;
+
 
 namespace Buffalo.WiFiDirect
 {
@@ -46,6 +48,7 @@ namespace Buffalo.WiFiDirect
             setWFDDeviceConnectedListener(wfdDeviceConnectedListener);
             setWFDDeviceDiscoveredListener(wfdDeviceDiscoveredListener);
 
+            PeerFinder.Start();
         }
 
         //private delegate void WorkItemHandler(IAsyncAction operation);
@@ -95,6 +98,8 @@ namespace Buffalo.WiFiDirect
         public delegate void PairingAsyncDelegate(WFDDevice device);
         public void pairAsync(WFDDevice device)
         {
+            PeerFinder.Stop();
+
             PairingAsyncDelegate pairing = new PairingAsyncDelegate(pairAsyncRun);
             pairing(device);
         }

@@ -26,7 +26,7 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\bin\Debug\WiFiDirectDevice.exe">
       <PackagePath>WiFiDirectDevice.exe</PackagePath>
-      <Modified>2014-11-10T11:29:58.466</Modified>
+      <Modified>2014-11-10T11:42:56.651</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Hanter Jung\Documents\Programming\OSS_Buffalo\WFD_to_android\Assets\microsoft-sdk.png">
       <PackagePath>Assets\microsoft-sdk.png</PackagePath>
